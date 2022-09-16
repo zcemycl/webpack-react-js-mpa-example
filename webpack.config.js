@@ -7,17 +7,17 @@ const port = process.env.PORT || 3000;
 module.exports = {
   mode: 'development',  
   entry: {
-    index: './src/index.js',
-    // nomatch: './src/components/NoMatch.js'
+    app: './src/index.js',
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].js',
+    chunkFilename: '[name].bundle.js',
     path: __dirname+'/dist', 
     publicPath: '/'
   },
   devtool: 'inline-source-map',
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
   module: {
     rules: [
@@ -44,25 +44,30 @@ module.exports = {
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        reactVendor: {
+          test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom)[\\/]/,
+          name: 'vendor-react',
+          chunks: 'all',
+        }
+      }
+    }
+  },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: __dirname+'/public/index.html',
+      template: 'public/index.html',
       // favicon: 'public/favicon.ico'
     }),
-    // new CopyPlugin({
-    //   patterns: [
-    //       {
-    //           from: 'public',
-    //           to: './'
-    //       }
-    //   ]
-    // })
   ],
   devServer: {
     host: 'localhost',
     port: port,
     historyApiFallback: true,
     open: true,
-    static: __dirname+'/dist'
+    static: __dirname+'/dist',
+    hot: true
   }
 };
