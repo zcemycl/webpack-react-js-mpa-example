@@ -7,9 +7,9 @@ const DynamicPage = lazy(() => import('./components/DynamicPage/DynamicPage'));
 const NoMatch = lazy(() => import('./components/NoMatch/NoMatch'));
 const About = lazy(() => import('./components/About/About'));
 
-const App = () => {
+const App = ({ basename="/" }) => {
   return (
-    <Router basename="/webpack-react-js-mpa-example">
+    <Router basename={basename}>
       <Suspense fallback={<div>Loading ...</div>}>
         <Routes>
           <Route exact path="/" element={<Home/>} />
