@@ -82,8 +82,9 @@ module.exports = {
     host: 'localhost',
     port: port,
     historyApiFallback: true,
-    open: true,
+    open: ['/webpack-react-js-mpa-example'],
     static: __dirname+'/dist',
-    hot: true
+    hot: true,
+    // openPage: '/webpack-react-js-mpa-example'
   }
 };
