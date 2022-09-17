@@ -10,7 +10,7 @@ module.exports = {
     app: './src/index.js',
   },
   output: {
-    filename: '[name].js',
+    // filename: '[name].js',
     chunkFilename: '[name].bundle.js',
     path: __dirname+'/dist', 
     publicPath: '/'
@@ -44,17 +44,17 @@ module.exports = {
       }
     ]
   },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        reactVendor: {
-          test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom)[\\/]/,
-          name: 'vendor-react',
-          chunks: 'all',
-        }
-      }
-    }
-  },
+  // optimization: {
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       reactVendor: {
+  //         test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom)[\\/]/,
+  //         name: 'vendor-react',
+  //         chunks: 'all',
+  //       }
+  //     }
+  //   }
+  // },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
