@@ -13,7 +13,7 @@ module.exports = {
     filename: '[name].js',
     chunkFilename: '[name].bundle.js',
     path: __dirname+'/dist', 
-    publicPath: '/'
+    publicPath: '/webpack-react-js-mpa-example'
   },
   devtool: 'inline-source-map',
   resolve: {
