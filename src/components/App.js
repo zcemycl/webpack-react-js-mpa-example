@@ -1,9 +1,7 @@
 import React, {Suspense, lazy} from 'react';
 import { Routes, BrowserRouter as Router,
   Route } from 'react-router-dom';
-import { About, Home, NoMatch,
-  DynamicPage, Loading } from './components'
-// import lazy from 'react-imported-component';
+import { Home } from './components'
 
 const AsyncDynamicPage = lazy(
   () => import(/* webpackChunkName:'DynamicPage' */ './components/DynamicPage/DynamicPage')
