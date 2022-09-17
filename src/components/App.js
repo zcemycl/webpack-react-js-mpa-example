@@ -1,7 +1,6 @@
 import React, {Suspense, lazy} from 'react';
 import { Routes, BrowserRouter as Router,
   Route } from 'react-router-dom';
-// import { Home, DynamicPage, NoMatch, About } from './components'
 
 const Home = lazy(() => import('./components/Home/Home'))
 const DynamicPage = lazy(() => import('./components/DynamicPage/DynamicPage'));

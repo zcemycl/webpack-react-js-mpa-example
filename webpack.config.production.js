@@ -12,7 +12,7 @@ module.exports = {
     chunkFilename: '[name].bundle.js',
     path: __dirname+'/dist', 
     // path: path.resolve(__dirname, 'dist'),
-    publicPath: '/webpack-react-js-mpa-example'
+    publicPath: '/webpack-react-js-mpa-example/'
   },
   resolve: {
     extensions: ['.js', '.jsx']
