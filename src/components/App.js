@@ -15,7 +15,7 @@ const AsyncAbout = lazy(
 
 const App = () => {
   return (
-    <Router basename="/webpack-react-js-mpa-example">
+    <Router>
       <Suspense fallback={<div>Loading ...</div>}>
         <Routes>
           <Route exact path="/" element={<Home/>} />
