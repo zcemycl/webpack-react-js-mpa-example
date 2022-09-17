@@ -9,7 +9,7 @@ const About = lazy(() => import('./components/About/About'));
 
 const App = () => {
   return (
-    <Router basename="webpack-react-js-mpa-example">
+    <Router basename="/webpack-react-js-mpa-example">
       <Suspense fallback={<div>Loading ...</div>}>
         <Routes>
           <Route exact path="/" element={<Home/>} />
