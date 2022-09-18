@@ -2,14 +2,18 @@ const puppeteer = require('puppeteer')
 const ci = Boolean(process.env.CI || false);
 jest.setTimeout(50000)
 
-let opts = [
-    '--ignore-certificate-errors',
-    '--no-sandbox',
-    '--disable-setuid-sandbox',
-    '--disable-accelerated-2d-canvas',
-    '--disable-gpu']
+let opts
 
-if (!ci) opts.push('--window-size=640,480')
+if (!ci) {
+    opts = ['--window-size=640,480']
+} else {
+    opts = [
+        '--ignore-certificate-errors',
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-accelerated-2d-canvas',
+        '--disable-gpu']
+}
 
 describe('e2e with jest-puppeteer', () => {
     let browser;
@@ -17,7 +21,10 @@ describe('e2e with jest-puppeteer', () => {
         browser = await puppeteer.launch({
             headless: ci, 
             slowMo: ci?0:80,
-            args: opts
+            args: opts,
+            // server: {
+            //     command: 'npm run start',
+            // }
         });
     })
 

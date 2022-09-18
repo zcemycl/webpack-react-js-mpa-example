@@ -10,6 +10,7 @@ const ciPipelineOptions = {
     launch: {
         executablePath: '/usr/bin/google-chrome-stable',
         headless: true,
+        slowMo: 100,
         args: [
             '--ignore-certificate-errors',
             '--no-sandbox',
@@ -20,5 +21,7 @@ const ciPipelineOptions = {
     },
     server: baseOptions.server
 }
+
+console.log(ci)
 
 module.exports = ci ? ciPipelineOptions : baseOptions;
