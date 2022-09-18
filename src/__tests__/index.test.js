@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer')
+// import { puppeteer } from 'puppeteer-core'
 const ci = Boolean(process.env.CI || false);
 jest.setTimeout(50000)
 
