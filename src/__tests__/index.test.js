@@ -1,7 +1,15 @@
 const puppeteer = require('puppeteer')
-// import { puppeteer } from 'puppeteer-core'
 const ci = Boolean(process.env.CI || false);
 jest.setTimeout(50000)
+
+let opts = [
+    '--ignore-certificate-errors',
+    '--no-sandbox',
+    '--disable-setuid-sandbox',
+    '--disable-accelerated-2d-canvas',
+    '--disable-gpu']
+
+if (!ci) opts.push('--window-size=640,480')
 
 describe('e2e with jest-puppeteer', () => {
     let browser;
@@ -9,7 +17,7 @@ describe('e2e with jest-puppeteer', () => {
         browser = await puppeteer.launch({
             headless: ci, 
             slowMo: ci?0:80,
-            args: ['--window-size=640,480']
+            args: opts
         });
     })
 
