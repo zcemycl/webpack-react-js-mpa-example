@@ -65,13 +65,6 @@ jobs:
           GA: true
         run: |
           npm run build
-      
-      # - name: Test
-      #   env:
-      #     CI: true
-      #   run: |
-      #     npm run test
-      
 
       - name: Deploy to GH Page
         uses: JamesIves/github-pages-deploy-action@4.1.1

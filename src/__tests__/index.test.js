@@ -28,7 +28,6 @@ describe('e2e with jest-puppeteer', () => {
             slowMo: ci?0:80,
             args: opts,
         });
-        // await page.goto('http://localhost:3000/webpack-react-js-mpa-example')
     })
 
     afterEach(async () => {

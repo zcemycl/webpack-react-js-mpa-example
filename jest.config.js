@@ -13,7 +13,7 @@ module.exports = {
     moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
     testEnvironment: 'jsdom',
     preset: 'jest-puppeteer', 
-    "setupFilesAfterEnv": [
+    setupFilesAfterEnv: [
       "jest-puppeteer-istanbul/lib/setup"
     ],
 };
