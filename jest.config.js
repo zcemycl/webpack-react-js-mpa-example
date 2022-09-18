@@ -4,7 +4,7 @@ module.exports = {
       "^.+\\.(js|jsx)$": "babel-jest",
       // "\\.ts$": ['ts-jest']
     },
-    coverageCoverageFrom: [
+    collectCoverageFrom: [
       '<rootDir>/src/**/*.{js,jsx}'
     ],
     verbose: true,
