@@ -28,8 +28,11 @@ jobs:
       # install the dependencies
       - name: install dependencies
         run: |
-          npm install -f --ignore-scripts
-          npm i puppeteer --save-dev -f --ignore-scripts
+          npm install -f
+          cd ./node_modules/puppeteer
+          npm run install
+          cd ../..
+          npm i puppeteer --save
 
 
       # run the tests
