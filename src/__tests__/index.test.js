@@ -27,7 +27,11 @@ describe('e2e with jest-puppeteer', () => {
 
     it('get button click', async() => {
         const page = await browser.newPage();
-        await page.goto('http://localhost:3000/webpack-react-js-mpa-example')
+        const resp = await page.goto('http://localhost:3000/webpack-react-js-mpa-example')
+        // const p = await await page.eval$('p')
+        // console.log(p.innerHTML)
+        console.log(resp.headers())
+        console.log(resp.status())
         const btn = await page.$('button');
         await btn.click();
         const selector = '[data-testid=numlist]'
