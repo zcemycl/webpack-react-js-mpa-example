@@ -1,8 +1,10 @@
 const ci = Boolean(process.env.CI || false);
+// const ci = true;
 
 const baseOptions = {
     server: {
         command: 'npm run start',
+        port: 3000
     }
 }
 
@@ -10,7 +12,7 @@ const ciPipelineOptions = {
     launch: {
         executablePath: '/usr/bin/google-chrome-stable',
         headless: true,
-        slowMo: 100,
+        slowMo: 250,
         args: [
             '--ignore-certificate-errors',
             '--no-sandbox',

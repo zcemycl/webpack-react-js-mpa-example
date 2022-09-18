@@ -1,5 +1,6 @@
 const puppeteer = require('puppeteer')
 const ci = Boolean(process.env.CI || false);
+// const ci = true
 jest.setTimeout(50000)
 
 let opts
@@ -34,7 +35,8 @@ describe('e2e with jest-puppeteer', () => {
 
     it('get button click', async() => {
         const page = await browser.newPage();
-        const resp = await page.goto('http://localhost:3000/webpack-react-js-mpa-example')
+        const resp = await page.goto('http://localhost:3000/webpack-react-js-mpa-example', 
+            { waitUntil: 'domcontentloaded' })
         // const p = await await page.eval$('p')
         // console.log(p.innerHTML)
         console.log(resp.headers())
