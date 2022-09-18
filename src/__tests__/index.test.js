@@ -1,5 +1,3 @@
-// const puppeteer = require('puppeteer')
-// const { page } = 'puppeteer'
 import puppeteer from 'puppeteer';
 const ci = Boolean(process.env.CI || false);
 // const ci = true
@@ -18,7 +16,8 @@ if (!ci) {
         '--disable-gpu']
 }
 
-const itif = (condition) => condition ? it : it.skip;
+// const itif = (condition) => condition ? it : it.skip;
+const itif = (condition) => it;
 
 describe('e2e with jest-puppeteer', () => {
     let browser;
