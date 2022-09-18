@@ -35,7 +35,7 @@ describe('e2e with jest-puppeteer', () => {
         await browser.close()
     })
 
-    it('get button click', async() => {
+    itif(!ci)('get button click', async() => {
         const page = await browser.newPage();
         const resp = await page.goto('http://localhost:3000/webpack-react-js-mpa-example', 
             { waitUntil: 'domcontentloaded' })
@@ -51,7 +51,7 @@ describe('e2e with jest-puppeteer', () => {
         expect(innerText).not.toBe('');
     })
 
-    it('get paragraph without click', async() => {
+    itif(!ci)('get paragraph without click', async() => {
         const page = await browser.newPage();
         const resp = await page.goto('http://localhost:3000/webpack-react-js-mpa-example', 
             { waitUntil: 'domcontentloaded' })
