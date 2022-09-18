@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path')
 
 const port = process.env.PORT || 3000;
+const ci = Boolean(process.env.CI || false);
 
 module.exports = {
   mode: 'development',  
@@ -82,9 +83,8 @@ module.exports = {
     host: 'localhost',
     port: port,
     historyApiFallback: true,
-    open: ['/webpack-react-js-mpa-example'],
+    open: ci?['/webpack-react-js-mpa-example']:false,
     static: __dirname+'/dist',
-    hot: true,
-    // openPage: '/webpack-react-js-mpa-example'
+    hot: true
   }
 };
