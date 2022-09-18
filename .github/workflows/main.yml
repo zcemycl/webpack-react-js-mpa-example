@@ -34,16 +34,12 @@ jobs:
           cd ../..
           npm i puppeteer --save
 
-      - name: Build
-        env:
-          GA: true
+      - name: build
         run: |
           npm run build
 
       # run the tests
       - name: test
-        env:
-          CI: true
         run: npm run test
 
       # Coveralls
@@ -66,8 +62,6 @@ jobs:
         run: npm install -f
 
       - name: Build
-        env:
-          GA: true
         run: |
           npm run build
 

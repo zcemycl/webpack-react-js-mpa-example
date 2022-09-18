@@ -1,6 +1,5 @@
 import puppeteer from 'puppeteer';
 const ci = Boolean(process.env.CI || false);
-// const ci = true
 jest.setTimeout(50000)
 
 let opts
@@ -16,9 +15,6 @@ if (!ci) {
         '--disable-gpu']
 }
 
-// const itif = (condition) => condition ? it : it.skip;
-const itif = (condition) => it;
-
 describe('e2e with jest-puppeteer', () => {
     let browser;
     beforeEach(async () => {
@@ -33,7 +29,7 @@ describe('e2e with jest-puppeteer', () => {
         await browser.close()
     })
 
-    itif(!ci)('get button click', async() => {
+    it('get button click', async() => {
         const page = await browser.newPage();
         const resp = await page.goto('http://localhost:3000/webpack-react-js-mpa-example', 
             { waitUntil: 'domcontentloaded' })
@@ -49,7 +45,7 @@ describe('e2e with jest-puppeteer', () => {
         expect(innerText).not.toBe('');
     })
 
-    itif(!ci)('get paragraph without click', async() => {
+    it('get paragraph without click', async() => {
         const page = await browser.newPage();
         const resp = await page.goto('http://localhost:3000/webpack-react-js-mpa-example', 
             { waitUntil: 'domcontentloaded' })

@@ -1,5 +1,4 @@
 const ci = Boolean(process.env.CI || false);
-// const ci = true;
 
 const baseOptions = {
     server: {
@@ -23,7 +22,5 @@ const ciPipelineOptions = {
     },
     server: baseOptions.server
 }
-
-console.log(ci)
 
 module.exports = ci ? ciPipelineOptions : baseOptions;
