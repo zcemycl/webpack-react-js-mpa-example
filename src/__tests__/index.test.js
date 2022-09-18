@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer')
+// const puppeteer = require('puppeteer')
 const ci = Boolean(process.env.CI || false);
 // const ci = true
 jest.setTimeout(50000)
@@ -19,25 +19,26 @@ if (!ci) {
 const itif = (condition) => condition ? it : it.skip;
 
 describe('e2e with jest-puppeteer', () => {
-    let browser;
+    // let browser;
     beforeEach(async () => {
-        browser = await puppeteer.launch({
-            headless: ci, 
-            slowMo: ci?0:80,
-            args: opts,
-        });
+        // browser = await puppeteer.launch({
+        //     headless: ci, 
+        //     slowMo: ci?0:80,
+        //     args: opts,
+        // });
+        await page.goto('http://localhost:3000/webpack-react-js-mpa-example')
     })
 
     afterEach(async () => {
-        await browser.close()
+        // await browser.close()
     })
 
     it('get button click', async() => {
-        const page = await browser.newPage();
-        let resp = await page.goto('http://localhost:3000/webpack-react-js-mpa-example', 
-            { waitUntil: 'domcontentloaded' })
-        console.log(resp.headers())
-        console.log(resp.status())
+        // const page = await browser.newPage();
+        // const resp = await page.goto('http://localhost:3000/webpack-react-js-mpa-example', 
+        //     { waitUntil: 'domcontentloaded' })
+        // console.log(resp.headers())
+        // console.log(resp.status())
         const btn = await page.$('button');
         await btn.click();
         const selector = '[data-testid=numlist]'
@@ -49,8 +50,8 @@ describe('e2e with jest-puppeteer', () => {
     })
 
     it('get paragraph without click', async() => {
-        const page = await browser.newPage();
-        await page.goto('http://localhost:3000/webpack-react-js-mpa-example')
+        // const page = await browser.newPage();
+        
         const selector = '[data-testid=numlist]'
         await page.waitForSelector(selector)
         const innerText = await page.evaluate((sel) => {
