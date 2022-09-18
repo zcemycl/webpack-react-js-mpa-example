@@ -35,10 +35,12 @@ describe('e2e with jest-puppeteer', () => {
 
     it('get button click', async() => {
         const page = await browser.newPage();
-        const resp = await page.goto('http://localhost:3000/webpack-react-js-mpa-example', 
+        let resp = await page.goto('http://localhost:3000/webpack-react-js-mpa-example', 
             { waitUntil: 'domcontentloaded' })
-        // const p = await await page.eval$('p')
-        // console.log(p.innerHTML)
+        console.log(resp.headers())
+        console.log(resp.status())
+        resp = await page.goto('http://localhost:3000/', 
+            { waitUntil: 'domcontentloaded' })
         console.log(resp.headers())
         console.log(resp.status())
         const btn = await page.$('button');
