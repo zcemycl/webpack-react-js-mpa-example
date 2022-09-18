@@ -1,8 +1,6 @@
 import Layout from '../Layout'
-import renderer from 'react-test-renderer';
-import {BrowserRouter as Router} from 'react-router-dom';
-import { render, fireEvent, screen, waitFor } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { render, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom'
 
 

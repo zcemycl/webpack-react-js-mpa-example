@@ -10,6 +10,10 @@ const Layout = ({ children }) => {
           webpack-for-react
         </Header>
       </Link>
+      <ul style={{listStyleType: 'none'}}>
+        <li><Link to="/dynamic">Navigate to Dynamic Page</Link></li>
+        <li><Link to="/about">Navigate to About Page</Link></li>
+      </ul>
       {children}
       <Divider />
       <p>
