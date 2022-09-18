@@ -37,6 +37,8 @@ jobs:
 
       # run the tests
       - name: test
+        env:
+          CI: true
         run: npm test
 
       # # check coverage - since jest-puppeteer-istanbul doesn't support it at the moment

@@ -16,6 +16,8 @@ if (!ci) {
         '--disable-gpu']
 }
 
+const itif = (condition) => condition ? it : it.skip;
+
 describe('e2e with jest-puppeteer', () => {
     let browser;
     beforeEach(async () => {
@@ -23,9 +25,6 @@ describe('e2e with jest-puppeteer', () => {
             headless: ci, 
             slowMo: ci?0:80,
             args: opts,
-            // server: {
-            //     command: 'npm run start',
-            // }
         });
     })
 
@@ -36,10 +35,6 @@ describe('e2e with jest-puppeteer', () => {
     it('get button click', async() => {
         const page = await browser.newPage();
         let resp = await page.goto('http://localhost:3000/webpack-react-js-mpa-example', 
-            { waitUntil: 'domcontentloaded' })
-        console.log(resp.headers())
-        console.log(resp.status())
-        resp = await page.goto('http://localhost:3000/', 
             { waitUntil: 'domcontentloaded' })
         console.log(resp.headers())
         console.log(resp.status())
